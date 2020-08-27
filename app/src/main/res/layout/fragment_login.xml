@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginFragment">
+
+    <ImageView
+        android:id="@+id/cancel_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/standard_margin"
+        android:src="@drawable/cancel"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:contentDescription="@string/cancle" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/log_into_your_account_text"
+        android:text="@string/log_into_your_account"
+        android:textSize="@dimen/large_text_size"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/view_1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/log_into_your_account_text"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="@dimen/standard_margin"/>
+
+    <Button
+        android:textSize="@dimen/standard_text_size"
+        android:id="@+id/with_facebook_button"
+        android:textColor="@android:color/white"
+        android:text="@string/with_facebook"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:background="@drawable/drawable_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_1"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/large_margin"
+        tools:targetApi="lollipop" />
+
+    <TextView
+        android:id="@+id/or_text"
+        android:textSize="@dimen/small_text_size"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/with_facebook_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/or"
+        android:layout_marginTop="@dimen/small_margin"/>
+
+    <TextView
+        android:id="@+id/email_text"
+        style="@style/TextViewStyle"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:text="@string/email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/or_text" />
+
+    <EditText
+        android:hint="@string/enter_you_email_address"
+        android:layout_marginEnd="@dimen/standard_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/email_text"
+        app:layout_constraintTop_toBottomOf="@id/email_text"
+        android:id="@+id/email_edit_text"
+        style="@style/EditTextStyle"
+        android:autofillHints="@string/email"
+        android:inputType="textEmailAddress"/>
+
+    <View
+        style="@style/ViewStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_edit_text"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:id="@+id/view_2"/>
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:text="@string/password"
+        app:layout_constraintTop_toBottomOf="@id/view_2"
+        app:layout_constraintStart_toStartOf="@id/email_text"
+        android:id="@+id/password_text"/>
+
+    <EditText
+        android:hint="@string/enter_a_password"
+        app:layout_constraintStart_toStartOf="@id/email_text"
+        app:layout_constraintTop_toBottomOf="@id/password_text"
+        app:layout_constraintEnd_toEndOf="@id/email_edit_text"
+        android:id="@+id/password_edit_text"
+        style="@style/EditTextStyle"
+        android:autofillHints="@string/name"
+        android:inputType="textPassword" />
+
+    <View
+        style="@style/ViewStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_edit_text"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:id="@+id/view_3"/>
+
+    <TextView
+        android:textSize="@dimen/standard_text_size"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_purple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_3"
+        android:text="@string/forgot_password"
+        android:id="@+id/forgot_pw_text_click"/>
+
+    <Button
+        android:textSize="@dimen/standard_text_size"
+        android:id="@+id/login_button"
+        android:textColor="@android:color/white"
+        android:text="@string/log_in"
+        android:backgroundTint="@android:color/holo_purple"
+        android:background="@drawable/drawable_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/forgot_pw_text_click"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginStart="@dimen/max_margin"
+        android:layout_marginEnd="@dimen/max_margin"
+        tools:targetApi="lollipop" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

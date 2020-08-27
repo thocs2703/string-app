@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.RegisterByEmailFragment"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/relative_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:src="@drawable/back_button"
+            android:id="@+id/register_email_back_button"
+            android:layout_width="@dimen/back_button_dimen"
+            android:layout_height="@dimen/back_button_dimen"
+            android:contentDescription="@string/back" />
+
+        <TextView
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_margin="@dimen/small_margin"
+            android:text="@string/create_account"
+            android:id="@+id/create_account_text"
+            android:textSize="@dimen/large_text_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_marginTop="@dimen/large_margin"
+            android:background="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/register_email_back_button"
+            android:id="@+id/view_1"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/email_text"
+                style="@style/TextViewStyle"
+                android:layout_marginStart="@dimen/standard_margin"
+                android:text="@string/email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:hint="@string/enter_you_email_address"
+                android:layout_marginEnd="@dimen/standard_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                app:layout_constraintTop_toBottomOf="@id/email_text"
+                android:id="@+id/email_edit_text"
+                style="@style/EditTextStyle"
+                android:autofillHints="@string/email"
+                android:inputType="textEmailAddress"/>
+
+            <View
+                style="@style/ViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email_edit_text"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:id="@+id/view_2"/>
+
+            <TextView
+                android:id="@+id/name_text"
+                style="@style/TextViewStyle"
+                android:text="@string/name"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                app:layout_constraintTop_toBottomOf="@id/view_2" />
+
+            <EditText
+                android:hint="@string/enter_your_name_optional"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                app:layout_constraintTop_toBottomOf="@id/name_text"
+                app:layout_constraintEnd_toEndOf="@id/email_edit_text"
+                android:id="@+id/name_edit_text"
+                style="@style/EditTextStyle"
+                android:autofillHints="@string/name"
+                android:inputType="text" />
+
+            <View
+                style="@style/ViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_edit_text"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:id="@+id/view_3"/>
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/date_of_birth"
+                app:layout_constraintTop_toBottomOf="@id/view_3"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                android:id="@+id/date_of_birth_text"/>
+
+            <EditText
+                android:hint="@string/enter_date_of_birth"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                app:layout_constraintTop_toBottomOf="@id/date_of_birth_text"
+                app:layout_constraintEnd_toEndOf="@id/email_edit_text"
+                android:id="@+id/date_edit_text"
+                style="@style/EditTextStyle"
+                android:autofillHints="@string/name"
+                android:inputType="date" />
+
+            <View
+                style="@style/ViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date_edit_text"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:id="@+id/view_4"/>
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/username"
+                app:layout_constraintTop_toBottomOf="@id/view_4"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                android:id="@+id/username_text"/>
+
+            <EditText
+                android:hint="@string/enter_a_username"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                app:layout_constraintTop_toBottomOf="@id/username_text"
+                app:layout_constraintEnd_toEndOf="@id/email_edit_text"
+                android:id="@+id/username_edit_text"
+                style="@style/EditTextStyle"
+                android:autofillHints="@string/name"
+                android:inputType="text" />
+
+            <View
+                style="@style/ViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/username_edit_text"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:id="@+id/view_5"/>
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/password"
+                app:layout_constraintTop_toBottomOf="@id/view_5"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                android:id="@+id/password_text"/>
+
+            <EditText
+                android:hint="@string/enter_a_password"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                app:layout_constraintTop_toBottomOf="@id/password_text"
+                app:layout_constraintEnd_toEndOf="@id/email_edit_text"
+                android:id="@+id/password_edit_text"
+                style="@style/EditTextStyle"
+                android:autofillHints="@string/name"
+                android:inputType="textPassword" />
+
+            <View
+                style="@style/ViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/password_edit_text"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:id="@+id/view_6"/>
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/confirm_password"
+                app:layout_constraintTop_toBottomOf="@id/view_6"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                android:id="@+id/confirm_password_text"/>
+
+            <EditText
+                android:hint="@string/enter_password_again"
+                app:layout_constraintStart_toStartOf="@id/email_text"
+                app:layout_constraintTop_toBottomOf="@id/confirm_password_text"
+                app:layout_constraintEnd_toEndOf="@id/email_edit_text"
+                android:id="@+id/confirm_password_edit_text"
+                style="@style/EditTextStyle"
+                android:autofillHints="@string/name"
+                android:inputType="textPassword" />
+
+            <View
+                style="@style/ViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/confirm_password_edit_text"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:id="@+id/view_7"/>
+
+            <CheckBox
+                style="@style/CheckBoxStyle"
+                android:id="@+id/terms_radio_button"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginStart="@dimen/large_margin"
+                app:layout_constraintStart_toStartOf="@id/email_edit_text"
+                app:layout_constraintTop_toBottomOf="@id/view_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:targetApi="lollipop" />
+
+            <TextView
+                android:textSize="@dimen/small_text_size"
+                android:layout_marginStart="@dimen/small_margin"
+                app:layout_constraintTop_toTopOf="@id/terms_radio_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/read_and_agree"
+                android:id="@+id/read_and_agree_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textColor="@android:color/holo_purple"
+                android:textStyle="bold"
+                android:text="@string/terms_of_service"
+                app:layout_constraintTop_toBottomOf="@id/read_and_agree_text"
+                app:layout_constraintStart_toStartOf="@id/read_and_agree_text"
+                android:id="@+id/terms_of_service_click"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/sign_up_button"
+                android:text="@string/sign_up"
+                android:background="@drawable/drawable_button"
+                android:backgroundTint="@android:color/holo_purple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/terms_of_service_click"
+                app:layout_constraintStart_toStartOf="@id/read_and_agree_text"
+                app:layout_constraintEnd_toEndOf="@id/read_and_agree_text"
+                android:layout_marginTop="@dimen/small_margin"
+                tools:targetApi="lollipop" />
+
+            <TextView
+                android:id="@+id/have_account_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                app:layout_constraintTop_toBottomOf="@id/sign_up_button"
+                app:layout_constraintStart_toStartOf="@id/sign_up_button"
+                android:text="@string/already_have_an_account"/>
+
+            <TextView
+                android:id="@+id/login_click_text"
+                android:layout_marginStart="3dp"
+                android:text="@string/log_in_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/have_account_text"
+                app:layout_constraintTop_toTopOf="@id/have_account_text"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_click_text"
+                android:layout_marginTop="@dimen/large_margin"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</LinearLayout>

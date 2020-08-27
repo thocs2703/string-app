@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">String</string>
+    <string name="discover_the_endless">Discover the Endless</string>
+    <string name="possibilities_of_travel">Possibilities of Travel</string>
+    <string name="sign_up_with_email">SIGN UP WITH EMAIL</string>
+    <string name="sign_up_with_facebook">SIGN UP WITH FACEBOOK</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="log_in">LOG IN</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_account">Create Account</string>
+    <string name="email">Email</string>
+    <string name="enter_you_email_address">Enter you email address</string>
+    <string name="name">Name</string>
+    <string name="enter_your_name_optional">Enter your name (optional)</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="enter_date_of_birth">Enter date of birth</string>
+    <string name="username">Username</string>
+    <string name="enter_a_username">Enter a username</string>
+    <string name="password">Password</string>
+    <string name="enter_a_password">Enter a password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_password_again">Enter password again</string>
+    <string name="back">Back</string>
+    <string name="read_and_agree">I have read and agree to String\'s</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="log_in_small">Log in</string>
+    <string name="done">Done</string>
+    <string name="thankyou_text">Thank you for signing up for a String account!\nPlease provide your particulars below.</string>
+    <string name="cancle">Cancle</string>
+    <string name="log_into_your_account">Log into your Account</string>
+    <string name="with_facebook">WITH FACEBOOK</string>
+    <string name="or">or</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="back_button">Back Button</string>
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="enter_email">Enter your email address below and follow the instructions in the email we\'ll send you.</string>
+    <string name="send_reset_link">SEND RESET LINK</string>
+    <string name="verify_your_account">Verify your account</string>
+    <string name="notification_empty">Notification Empty</string>
+    <string name="a_verification_email_has_been_sent_to">A verification email has been sent to:</string>
+    <string name="kane_gmail_com">kane@gmail.com</string>
+    <string name="check_email_text">Check your email and click on the verification link to active your account.</string>
+    <string name="email_resent">Email Resent</string>
+    <string name="open_mail_app">OPEN MAIL APP</string>
+</resources>

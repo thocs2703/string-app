@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="vinova.kane.string.ui.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/register_by_email_action"
+            app:destination="@id/registerByEmailFragment" />
+        <action
+            android:id="@+id/register_by_fb_action"
+            app:destination="@id/registerByFbFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerByEmailFragment"
+        android:name="vinova.kane.string.ui.RegisterByEmailFragment"
+        android:label="fragment_register_by_email"
+        tools:layout="@layout/fragment_register_by_email" >
+        <action
+            android:id="@+id/back_to_start_fragment_action"
+            app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/regis_email_to_terms_action"
+            app:destination="@id/termsFragment" />
+        <action
+            android:id="@+id/register_email_to_login_action"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerByFbFragment"
+        android:name="vinova.kane.string.ui.RegisterByFbFragment"
+        android:label="fragment_register_by_fb"
+        tools:layout="@layout/fragment_register_by_fb" >
+        <action
+            android:id="@+id/regis_fb_to_terms_action"
+            app:destination="@id/termsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/termsFragment"
+        android:name="vinova.kane.string.ui.TermsFragment"
+        android:label="fragment_terms"
+        tools:layout="@layout/fragment_terms" >
+        <action
+            android:id="@+id/terms_to_start_action"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="vinova.kane.string.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/login_cancel_to_start_action"
+            app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/forgot_password_action"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_forgot_password"
+        android:id="@+id/forgotPasswordFragment"
+        android:name="vinova.kane.string.ui.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment" >
+        <action
+            android:id="@+id/forgot_pw_to_login_action"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/verify_email_action"
+            app:destination="@id/verifyEmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyEmailFragment"
+        android:name="vinova.kane.string.ui.VerifyEmailFragment"
+        android:label="fragment_verify_email"
+        tools:layout="@layout/fragment_verify_email" >
+        <action
+            android:id="@+id/verify_to_forgot_action"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+</navigation>

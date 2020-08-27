@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@android:color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.TermsFragment">
+
+    <ImageView
+        android:id="@+id/cancel_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/standard_margin"
+        android:src="@drawable/cancel"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:contentDescription="@string/cancle" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/terms_of_service_text"
+        android:text="@string/terms_of_service"
+        android:textSize="@dimen/large_text_size"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/view_1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/terms_of_service_text"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="@dimen/standard_margin"/>
+
+    <WebView
+        android:id="@+id/terms_webview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_1"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
