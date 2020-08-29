@@ -1,12 +1,10 @@
-package vinova.kane.string.ui
+package vinova.kane.string.ui.auth
 
-import android.app.AppComponentFactory
 import android.os.Bundle
 import android.view.*
 import android.view.animation.AlphaAnimation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import vinova.kane.string.R
 import vinova.kane.string.databinding.FragmentStartBinding
@@ -24,18 +22,27 @@ class StartFragment : Fragment() {
 
         binding = FragmentStartBinding.inflate(inflater)
 
+        onClickEvent()
+
+        return binding.root
+
+    }
+
+    private fun onClickEvent(){
         binding.signUpWithEmailButton.setOnClickListener {
             it.startAnimation(buttonClick)
-            this.findNavController().navigate(R.id.register_by_email_action)
+            findNavController().navigate(R.id.register_by_email_action)
         }
 
         binding.signUpWithFbButton.setOnClickListener {
             it.startAnimation(buttonClick)
-            this.findNavController().navigate(R.id.register_by_fb_action)
+            findNavController().navigate(R.id.register_by_fb_action)
         }
 
-        return binding.root
-
+        binding.loginButton.setOnClickListener {
+            it.startAnimation(buttonClick)
+            findNavController().navigate(R.id.start_to_login_action)
+        }
     }
 
 }

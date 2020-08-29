@@ -44,4 +44,5 @@
     <string name="check_email_text">Check your email and click on the verification link to active your account.</string>
     <string name="email_resent">Email Resent</string>
     <string name="open_mail_app">OPEN MAIL APP</string>
+    <string name="error">Error!</string>
 </resources>

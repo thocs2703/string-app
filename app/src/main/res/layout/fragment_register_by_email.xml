@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.RegisterByEmailFragment"
+    tools:context=".ui.auth.RegisterByEmailFragment"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -51,12 +51,36 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginStart="@dimen/standard_margin"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:textColor="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:text="@string/error"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/error_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/progress_bar"/>
+
+            <TextView
                 android:id="@+id/email_text"
                 style="@style/TextViewStyle"
                 android:layout_marginStart="@dimen/standard_margin"
                 android:text="@string/email"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/error_text"/>
 
             <EditText
                 android:hint="@string/enter_you_email_address"
@@ -110,6 +134,7 @@
                 android:id="@+id/date_of_birth_text"/>
 
             <EditText
+                android:clickable="true"
                 android:hint="@string/enter_date_of_birth"
                 app:layout_constraintStart_toStartOf="@id/email_text"
                 app:layout_constraintTop_toBottomOf="@id/date_of_birth_text"
@@ -117,7 +142,7 @@
                 android:id="@+id/date_edit_text"
                 style="@style/EditTextStyle"
                 android:autofillHints="@string/name"
-                android:inputType="date" />
+                android:focusable="false" />
 
             <View
                 style="@style/ViewStyle"
@@ -235,10 +260,24 @@
                 android:layout_height="wrap_content"/>
 
             <Button
+                android:visibility="invisible"
                 android:id="@+id/sign_up_button"
                 android:text="@string/sign_up"
                 android:background="@drawable/drawable_button"
                 android:backgroundTint="@android:color/holo_purple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/terms_of_service_click"
+                app:layout_constraintStart_toStartOf="@id/read_and_agree_text"
+                app:layout_constraintEnd_toEndOf="@id/read_and_agree_text"
+                android:layout_marginTop="@dimen/small_margin"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/not_sign_up_button"
+                android:text="@string/sign_up"
+                android:background="@drawable/drawable_button"
+                android:backgroundTint="@android:color/darker_gray"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/terms_of_service_click"
@@ -257,6 +296,7 @@
                 android:text="@string/already_have_an_account"/>
 
             <TextView
+                android:textColor="@android:color/holo_purple"
                 android:id="@+id/login_click_text"
                 android:layout_marginStart="3dp"
                 android:text="@string/log_in_small"
@@ -275,5 +315,4 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 </LinearLayout>
