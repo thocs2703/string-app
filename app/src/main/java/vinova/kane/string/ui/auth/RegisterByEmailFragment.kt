@@ -15,8 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import vinova.kane.string.R
 import vinova.kane.string.databinding.FragmentRegisterByEmailBinding
-import vinova.kane.string.repository.UserRepository
-import vinova.kane.string.viewmodel.RegisterViewModel
+import vinova.kane.string.viewmodel.AuthViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,8 +23,7 @@ import java.util.*
 class RegisterByEmailFragment : Fragment() {
     private lateinit var binding: FragmentRegisterByEmailBinding
     private val buttonClick = AlphaAnimation(1F, 0.6F)
-    private lateinit var viewModel: RegisterViewModel
-    private lateinit var factory: ViewModelProvider.Factory
+    private lateinit var viewModel: AuthViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,9 +33,7 @@ class RegisterByEmailFragment : Fragment() {
 
         binding = FragmentRegisterByEmailBinding.inflate(inflater)
 
-        factory = RegisterViewModel.RegisterViewModelFactory(UserRepository)
-        viewModel = ViewModelProvider(this, factory).get(RegisterViewModel::class.java)
-
+        viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         getDateOfBirth()
         termsIsCheck()
 
@@ -77,9 +73,9 @@ class RegisterByEmailFragment : Fragment() {
     }
 
     private fun handleResponse(){
-        viewModel.registerStatus.observe(viewLifecycleOwner, Observer {
-            Log.d("RegisterByEmailFragment", "Register Status: $it")
-            if (it){
+        viewModel.registerResponse.observe(viewLifecycleOwner, Observer {
+            if (it.status){
+                Log.d("RegisterByEmailFragment", "Register Status: ${it.status}")
                 binding.progressBar.visibility = View.VISIBLE
                 binding.errorText.visibility = View.GONE
                 val bundle = bundleOf("EMAIL" to binding.emailEditText.text.toString())
@@ -94,15 +90,10 @@ class RegisterByEmailFragment : Fragment() {
                 binding.progressBar.visibility = View.GONE
                 binding.errorText.visibility = View.VISIBLE
             }
-        })
 
-        viewModel.registerMessage.observe(viewLifecycleOwner, Observer {
-            Log.d("RegisterByEmailFragment", "Register Message: $it")
-            binding.errorText.text = it ?: ""
-        })
+            binding.errorText.text = it.message
 
-        viewModel.registerData.observe(viewLifecycleOwner, Observer {
-            Log.d("RegisterByEmailFragment", "Register Data: $it")
+            Log.d("RegisterByEmailFragment", "Register Data: ${it.data}")
         })
     }
 
