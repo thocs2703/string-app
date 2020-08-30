@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import vinova.kane.string.R
 import vinova.kane.string.databinding.FragmentRegisterByEmailBinding
+import vinova.kane.string.util.EMAIL_ARGS_FROM_SIGN_UP
 import vinova.kane.string.viewmodel.AuthViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -60,7 +61,6 @@ class RegisterByEmailFragment : Fragment() {
     }
 
     private fun registerUser(){
-//        binding.progressBar.visibility = View.VISIBLE
         val username = binding.usernameEditText.text.toString()
         val name = binding.nameEditText.text.toString()
         val dayOfBirth = binding.dateEditText.text.toString()
@@ -78,7 +78,7 @@ class RegisterByEmailFragment : Fragment() {
                 Log.d("RegisterByEmailFragment", "Register Status: ${it.status}")
                 binding.progressBar.visibility = View.VISIBLE
                 binding.errorText.visibility = View.GONE
-                val bundle = bundleOf("EMAIL" to binding.emailEditText.text.toString())
+                val bundle = bundleOf(EMAIL_ARGS_FROM_SIGN_UP to binding.emailEditText.text.toString())
                 Log.d("RegisterByEmailFragment", "Put Email: ${binding.emailEditText.text}")
                 if(findNavController().currentDestination?.id == R.id.registerByEmailFragment){
                     findNavController().navigate(R.id.sign_up_success_action, bundle)

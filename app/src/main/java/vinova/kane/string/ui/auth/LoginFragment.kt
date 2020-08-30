@@ -8,11 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.animation.AlphaAnimation
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import vinova.kane.string.R
 import vinova.kane.string.databinding.FragmentLoginBinding
+import vinova.kane.string.util.EMAIL_ARGS_FROM_LOGIN
+import vinova.kane.string.util.LOGIN_SUCCESSFUL_MSG
+import vinova.kane.string.util.VERIFY_EMAIL_MSG
 import vinova.kane.string.viewmodel.AuthViewModel
 
 class LoginFragment : Fragment() {
@@ -38,7 +42,7 @@ class LoginFragment : Fragment() {
 
     }
 
-    private fun onClickEvent(){
+    private fun onClickEvent() {
         binding.cancelButton.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -55,7 +59,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun loginUserByEmail(){
+    private fun loginUserByEmail() {
         viewModel.loginUserByEmail(
             binding.emailEditText.text.toString(),
             binding.passwordEditText.text.toString(),
@@ -63,25 +67,25 @@ class LoginFragment : Fragment() {
         )
 
         viewModel.dataLoginResponse.observe(viewLifecycleOwner, Observer {
-            when(it.message){
+            when (it.message) {
                 LOGIN_SUCCESSFUL_MSG -> {
-                    if(findNavController().currentDestination?.id == R.id.loginFragment){
+                    if (findNavController().currentDestination?.id == R.id.loginFragment) {
                         findNavController().navigate(R.id.login_success_action)
                     }
                 }
                 VERIFY_EMAIL_MSG -> {
-                    if(findNavController().currentDestination?.id == R.id.loginFragment){
-                        findNavController().navigate(R.id.login_to_verify_email_action)
+                    if (findNavController().currentDestination?.id == R.id.loginFragment) {
+                        val bundle =
+                            bundleOf(EMAIL_ARGS_FROM_LOGIN to binding.emailEditText.text.toString())
+                        findNavController().navigate(R.id.login_to_verify_email_action, bundle)
                     }
                 }
-                else -> Log.d("LoginFragment", "Login Failure: ${it.message}")
+                else -> {
+                    binding.errorText.text = it.message
+                    binding.errorText.visibility = View.VISIBLE
+                }
             }
         })
-    }
-
-    companion object{
-        private const val LOGIN_SUCCESSFUL_MSG = "User login successfully."
-        private const val VERIFY_EMAIL_MSG = "Please verify your email address."
     }
 
 }

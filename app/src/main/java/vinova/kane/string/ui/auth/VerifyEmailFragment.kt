@@ -1,15 +1,15 @@
 package vinova.kane.string.ui.auth
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import vinova.kane.string.R
 import vinova.kane.string.databinding.FragmentVerifyEmailBinding
+import vinova.kane.string.util.EMAIL_ARGS_FROM_LOGIN
+import vinova.kane.string.util.EMAIL_ARGS_FROM_SIGN_UP
 
 class VerifyEmailFragment : Fragment() {
 
@@ -27,8 +27,11 @@ class VerifyEmailFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        binding.emailText.text = arguments?.getString("EMAIL").toString()
-        Log.d("VerifyEmailFragment", "Get email from register fragment: ${arguments?.getString("EMAIL")}")
+        if ( arguments?.getString(EMAIL_ARGS_FROM_SIGN_UP) != null){
+            binding.emailText.text = requireArguments().getString(EMAIL_ARGS_FROM_SIGN_UP).toString()
+        } else{
+            binding.emailText.text = requireArguments().getString(EMAIL_ARGS_FROM_LOGIN).toString()
+        }
 
         return binding.root
 
