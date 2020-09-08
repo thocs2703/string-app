@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
+    android:id="@+id/nav_auth"
     app:startDestination="@id/startFragment">
 
     <fragment
@@ -56,9 +56,6 @@
             android:id="@+id/forgot_password_action"
             app:destination="@id/forgotPasswordFragment" />
         <action
-            android:id="@+id/login_success_action"
-            app:destination="@id/socialWallFragment" />
-        <action
             android:id="@+id/login_to_verify_email_action"
             app:destination="@id/verifyEmailFragment" />
     </fragment>
@@ -76,9 +73,4 @@
         android:name="vinova.kane.string.ui.auth.VerifyEmailFragment"
         android:label="fragment_verify_email"
         tools:layout="@layout/fragment_verify_email" />
-    <fragment
-        android:id="@+id/socialWallFragment"
-        android:name="vinova.kane.string.ui.feed.SocialWallFragment"
-        android:label="fragment_social_wall"
-        tools:layout="@layout/fragment_social_wall" />
 </navigation>

@@ -1,4 +1,4 @@
-package vinova.kane.string.ui.feed
+package vinova.kane.string.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import vinova.kane.string.R
 
-class SocialWallFragment : Fragment() {
+
+class PostFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_social_wall, container, false)
+        return inflater.inflate(R.layout.fragment_post, container, false)
     }
 
 }

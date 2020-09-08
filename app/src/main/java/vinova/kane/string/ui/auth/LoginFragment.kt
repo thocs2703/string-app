@@ -1,7 +1,7 @@
 package vinova.kane.string.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import vinova.kane.string.R
 import vinova.kane.string.databinding.FragmentLoginBinding
+import vinova.kane.string.ui.main.MainActivity
 import vinova.kane.string.util.EMAIL_ARGS_FROM_LOGIN
 import vinova.kane.string.util.LOGIN_SUCCESSFUL_MSG
 import vinova.kane.string.util.VERIFY_EMAIL_MSG
@@ -69,9 +70,10 @@ class LoginFragment : Fragment() {
         viewModel.dataLoginResponse.observe(viewLifecycleOwner, Observer {
             when (it.message) {
                 LOGIN_SUCCESSFUL_MSG -> {
-                    if (findNavController().currentDestination?.id == R.id.loginFragment) {
-                        findNavController().navigate(R.id.login_success_action)
-                    }
+//                    if (findNavController().currentDestination?.id == R.id.loginFragment) {
+//                        findNavController().navigate(R.id.login_success_action)
+//                    }
+                    startActivity(Intent(activity, MainActivity::class.java))
                 }
                 VERIFY_EMAIL_MSG -> {
                     if (findNavController().currentDestination?.id == R.id.loginFragment) {
