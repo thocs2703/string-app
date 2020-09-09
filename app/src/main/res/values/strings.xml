@@ -53,4 +53,24 @@
     <string name="post">Post</string>
 
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
+    <string name="feed">Feed</string>
+    <string name="time_feed_post">7 hours ago</string>
+    <string name="username_feed_post">Kane Vinova</string>
+    <string name="save">Save</string>
+    <string name="description">Description</string>
+    <string name="post_image">Post Image</string>
+    <string name="location">Location</string>
+    <string name="play_button">Play Button</string>
+    <string name="time_duration">01:10</string>
+    <string name="like_icon">Like Icon</string>
+    <string name="comment_icon">Comment Icon</string>
+    <string name="show_more_feed">Show more feed</string>
+    <string name="saved_post_count">3</string>
+    <string name="address_poi_text">The Garden of Morning Calm</string>
+    <string name="location_text">Seoul, South Korea</string>
+    <string name="username_poi">kane.vinova</string>
+    <string name="itinerary_title_text">Top 5 Sake Bar In Tokyo: For Sake Lovers!</string>
+    <string name="string">String</string>
+    <string name="recreate">Recreate</string>
+    <string name="desc_itenerary_text">Sake is growing in popularity both nationally an internationally.</string>
 </resources>

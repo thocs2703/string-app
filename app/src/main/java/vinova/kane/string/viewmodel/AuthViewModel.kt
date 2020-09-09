@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import vinova.kane.string.model.UserResponse
+import vinova.kane.string.model.user.UserResponse
 import vinova.kane.string.network.Client
 
 class AuthViewModel : ViewModel() {

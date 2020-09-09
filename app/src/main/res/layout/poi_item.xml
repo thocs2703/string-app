@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/ll_title_poi"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="1"
+            android:textSize="@dimen/large_text_size"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_location"
+            android:text="@string/address_poi_text"
+            android:id="@+id/address_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_marginEnd="@dimen/small_margin"
+            android:layout_gravity="end"
+            android:background="@drawable/button_shadow"
+            android:backgroundTint="@android:color/white"
+            android:id="@+id/btn_string_poi"
+            android:layout_width="@dimen/width_save_btn"
+            android:layout_height="@dimen/height_save_btn"
+            android:drawableStart="@drawable/ic_string"
+            android:drawablePadding="@dimen/standard_margin"
+            android:gravity="center"
+            android:paddingStart="@dimen/small_padding"
+            android:paddingEnd="@dimen/small_padding"
+            android:text="@string/saved_post_count"
+            android:textColor="@android:color/holo_purple"
+            android:textSize="15sp"
+            tools:ignore="RelativeOverlap"
+            tools:targetApi="lollipop" />
+    </LinearLayout>
+
+    <TextView
+        android:text="@string/location_text"
+        android:id="@+id/location_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_title_poi"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="@dimen/standard_margin"/>
+
+    <FrameLayout
+        android:id="@+id/poi_frame"
+        android:layout_below="@id/location_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_margin">
+
+        <ImageView
+            android:id="@+id/img_poi"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/post_image"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/post_demo" />
+
+        <LinearLayout
+            android:background="@drawable/gradient_item_interest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:gravity="top"
+            android:orientation="horizontal"
+            android:padding="@dimen/small_padding">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_avatar_poi"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:padding="1dp"
+                android:src="@drawable/ic_avatar"
+                app:civ_border_color="@android:color/white"
+                app:civ_border_width="1dp" />
+
+            <TextView
+                android:textColor="@android:color/white"
+                android:text="@string/username_poi"
+                android:id="@+id/username_poi_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/standard_margin"
+                app:drawableEndCompat="@drawable/ic_star_circle"
+                android:drawablePadding="@dimen/standard_margin"
+                android:ellipsize="end"
+                android:maxLines="2"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/btn_like_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/poi_frame"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:contentDescription="@string/like_icon"
+        android:src="@drawable/like_selector"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/like_count_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_like_post"
+        android:layout_alignBottom="@id/btn_like_post"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:layout_toEndOf="@id/btn_like_post"/>
+
+    <ImageView
+        android:id="@+id/btn_cmt_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/poi_frame"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_toEndOf="@id/btn_like_post"
+        android:contentDescription="@string/comment_icon"
+        android:src="@drawable/ic_comment"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/cmt_count_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_cmt_post"
+        android:layout_alignBottom="@id/btn_like_post"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:layout_toEndOf="@id/btn_cmt_post"/>
+
+    <ImageView
+        android:id="@+id/btn_show_more_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/poi_frame"
+        android:layout_alignTop="@id/btn_like_post"
+        android:layout_alignBottom="@id/btn_like_post"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:contentDescription="@string/show_more_feed"
+        android:src="@drawable/ic_more"
+        android:focusable="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/btn_like_post"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:background="@android:color/darker_gray" />
+
+</RelativeLayout>

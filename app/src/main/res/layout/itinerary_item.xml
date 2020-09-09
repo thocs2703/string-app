@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:paddingStart="@dimen/standard_padding"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/large_text_size"
+            android:text="@string/itinerary_title_text"
+            android:id="@+id/tv_title_itinerary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="3"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:layout_marginEnd="@dimen/small_margin"
+            android:text="@string/string"
+            android:id="@+id/btn_string_itinerary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@drawable/button_shadow"
+            android:drawableStart="@drawable/ic_string"
+            android:drawablePadding="@dimen/standard_margin"
+            android:gravity="center"
+            android:paddingStart="@dimen/small_padding"
+            android:paddingEnd="@dimen/small_padding"
+            android:textAllCaps="false"
+            android:textColor="@android:color/holo_purple"
+            android:textSize="15sp"
+            tools:ignore="RelativeOverlap" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/header_linear"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:id="@+id/rv_itinerary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:itemCount="2"
+        android:orientation="horizontal"/>
+
+    <LinearLayout
+        android:id="@+id/user_frame_linear"
+        android:layout_below="@id/rv_itinerary"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:padding="@dimen/small_padding">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_avatar_itinerary"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:src="@drawable/ic_avatar" />
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:id="@+id/username_itinerary_text"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:drawablePadding="@dimen/standard_margin"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@string/username_poi"
+            app:drawableEndCompat="@drawable/ic_star_circle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/user_frame_linear"
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:id="@+id/account_from_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:padding="@dimen/small_padding">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:contentDescription="@string/recreate"
+            android:src="@drawable/ic_strung_from"
+            android:focusable="true" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/strung_from_image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:src="@drawable/ic_avatar" />
+
+        <TextView
+            android:text="@string/username_poi"
+            android:id="@+id/strung_from_username_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#9597A2" />
+    </LinearLayout>
+
+    <TextView
+        android:textColor="@android:color/black"
+        android:text="@string/desc_itenerary_text"
+        android:layout_below="@id/account_from_linear"
+        android:id="@+id/tv_description_itinerary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:layout_marginEnd="@dimen/standard_margin" />
+
+    <ImageView
+        android:id="@+id/btn_like_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_description_itinerary"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:contentDescription="@string/like_icon"
+        android:src="@drawable/like_selector"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/like_count_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_like_post"
+        android:layout_alignBottom="@id/btn_like_post"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:layout_toEndOf="@id/btn_like_post"/>
+
+    <ImageView
+        android:id="@+id/btn_cmt_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_description_itinerary"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_toEndOf="@id/btn_like_post"
+        android:contentDescription="@string/comment_icon"
+        android:src="@drawable/ic_comment"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/cmt_count_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/btn_cmt_post"
+        android:layout_alignBottom="@id/btn_like_post"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:layout_toEndOf="@id/btn_cmt_post"/>
+
+    <ImageView
+        android:id="@+id/btn_show_more_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/poi_frame"
+        android:layout_alignTop="@id/btn_like_post"
+        android:layout_alignBottom="@id/btn_like_post"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:contentDescription="@string/show_more_feed"
+        android:src="@drawable/ic_more"
+        android:focusable="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/btn_like_post"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:background="@android:color/darker_gray" />
+
+</RelativeLayout>

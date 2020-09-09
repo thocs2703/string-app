@@ -1,4 +1,4 @@
-package vinova.kane.string.model
+package vinova.kane.string.model.user
 
 
 import com.google.gson.annotations.SerializedName
