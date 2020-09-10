@@ -3,7 +3,7 @@ package vinova.kane.string.model.user
 
 import com.google.gson.annotations.SerializedName
 
-data class Data(
+data class UserData(
     @SerializedName("access_token")
     val accessToken: String,
     @SerializedName("badge")

@@ -3,7 +3,7 @@ package vinova.kane.string.model.feed
 
 import com.google.gson.annotations.SerializedName
 
-data class Data(
+data class FeedData(
     @SerializedName("address")
     val address: String,
     @SerializedName("commentCounter")

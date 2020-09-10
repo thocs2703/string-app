@@ -114,7 +114,7 @@
         android:focusable="true" />
 
     <TextView
-        android:id="@+id/like_count_text"
+        android:id="@+id/like_counter_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/btn_like_post"
@@ -135,7 +135,7 @@
         android:focusable="true" />
 
     <TextView
-        android:id="@+id/cmt_count_text"
+        android:id="@+id/comment_counter_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/btn_cmt_post"

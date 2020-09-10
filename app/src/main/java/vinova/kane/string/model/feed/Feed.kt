@@ -7,7 +7,7 @@ data class Feed(
     @SerializedName("code")
     val code: Int,
     @SerializedName("data")
-    val `data`: List<Data>,
+    val `data`: List<FeedData>,
     @SerializedName("message")
     val message: String,
     @SerializedName("metadata")

@@ -1,10 +1,7 @@
 package vinova.kane.string.network
 
 import io.reactivex.Single
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 import vinova.kane.string.model.feed.Feed
 import vinova.kane.string.model.user.UserResponse
 
@@ -36,8 +33,8 @@ interface ApiService {
 
     @GET("feed")
     fun getFeed(
-        @Field("page") page: String,
-        @Field("current_per_page") current_per_page: String,
-        @Field("Authorization") Authorization: String
+        @Query("page") page: String,
+        @Query("current_per_page") current_per_page: String,
+        @Query("Authorization") Authorization: String
     ): Single<Feed>
 }

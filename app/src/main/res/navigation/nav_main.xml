@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main.xml"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/feedFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="vinova.kane.string.ui.main.HomeFragment"
+        android:id="@+id/feedFragment"
+        android:name="vinova.kane.string.ui.main.feed.FeedFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
     <fragment

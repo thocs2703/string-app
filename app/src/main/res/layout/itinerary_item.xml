@@ -155,7 +155,7 @@
         android:focusable="true" />
 
     <TextView
-        android:id="@+id/like_count_text"
+        android:id="@+id/like_counter_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/btn_like_post"
@@ -176,7 +176,7 @@
         android:focusable="true" />
 
     <TextView
-        android:id="@+id/cmt_count_text"
+        android:id="@+id/comment_counter_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/btn_cmt_post"
@@ -188,7 +188,7 @@
         android:id="@+id/btn_show_more_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/poi_frame"
+        android:layout_below="@id/tv_description_itinerary"
         android:layout_alignTop="@id/btn_like_post"
         android:layout_alignBottom="@id/btn_like_post"
         android:layout_alignParentEnd="true"
