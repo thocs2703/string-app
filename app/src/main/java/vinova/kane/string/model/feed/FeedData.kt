@@ -27,11 +27,11 @@ data class FeedData(
     @SerializedName("itineraries")
     val itineraries: List<Itinerary>,
     @SerializedName("lat")
-    val lat: Int,
+    val lat: Float,
     @SerializedName("likeCounter")
     val likeCounter: Int,
     @SerializedName("long")
-    val long: Int,
+    val long: Float,
     @SerializedName("photos")
     val photos: List<Photo>,
     @SerializedName("place")
@@ -57,7 +57,7 @@ data class FeedData(
     @SerializedName("videos")
     val videos: String,
     @SerializedName("websiteUrl")
-    val websiteUrl: String,
-    @SerializedName("workingHours")
-    val workingHours: String
+    val websiteUrl: String
+//    @SerializedName("workingHours")
+//    val workingHours: String
 )

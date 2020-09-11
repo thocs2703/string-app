@@ -84,7 +84,7 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/standard_margin"
                 android:padding="1dp"
-                android:src="@drawable/ic_avatar"
+                app:srcCompat="@drawable/ic_avatar"
                 app:civ_border_color="@android:color/white"
                 app:civ_border_width="1dp" />
 
@@ -131,7 +131,7 @@
         android:layout_marginTop="@dimen/standard_margin"
         android:layout_toEndOf="@id/btn_like_post"
         android:contentDescription="@string/comment_icon"
-        android:src="@drawable/ic_comment"
+        app:srcCompat="@drawable/ic_comment"
         android:focusable="true" />
 
     <TextView
@@ -153,7 +153,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/standard_margin"
         android:contentDescription="@string/show_more_feed"
-        android:src="@drawable/ic_more"
+        app:srcCompat="@drawable/ic_more"
         android:focusable="true" />
 
     <View

@@ -33,8 +33,8 @@ interface ApiService {
 
     @GET("feed")
     fun getFeed(
-        @Query("page") page: String,
-        @Query("current_per_page") current_per_page: String,
-        @Query("Authorization") Authorization: String
+        @Query("page") page: Int,
+        @Query("current_per_page") currentPerPage: Int,
+        @Header("Authorization") authorization: String
     ): Single<Feed>
 }

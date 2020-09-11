@@ -18,37 +18,31 @@ class FeedViewModel: ViewModel() {
     private lateinit var sourceFactory: FeedDataSourceFactory
     private val compositeDisposable = CompositeDisposable()
     private val apiService = Client.getClient()
-    private lateinit var feedDataPagedList: LiveData<PagedList<FeedData>>
+    lateinit var feedDataPagedList: LiveData<PagedList<FeedData>>
 
     private var config: PagedList.Config = PagedList.Config.Builder()
         .setPageSize(DATA_PER_PAGE)
         .setEnablePlaceholders(false)
         .build()
 
-
-//    init {
-//        sourceFactory = FeedDataSourceFactory(apiService, compositeDisposable, authorization)
-//
-//        feedDataPagedList = LivePagedListBuilder<Int, FeedData>(sourceFactory, config).build()
-//    }
-
     fun getFeed(authorization: String){
         sourceFactory = FeedDataSourceFactory(apiService, compositeDisposable, authorization)
-        feedDataPagedList = LivePagedListBuilder<String, FeedData>(sourceFactory, config).build()
+        feedDataPagedList = LivePagedListBuilder<Int, FeedData>(sourceFactory, config).build()
         Log.i("FeedViewModel", "Get Feed")
+        Log.d("FeedViewModel", "Authorization: $authorization")
     }
 
-    fun retry() {
-        sourceFactory.feedLiveDataSource.value?.retry()
-    }
-
-    fun refresh() {
-        sourceFactory.feedLiveDataSource.value!!.invalidate()
-    }
-
-    fun listIsEmpty(): Boolean {
-        return feedDataPagedList.value?.isEmpty() ?: true
-    }
+//    fun retry() {
+//        sourceFactory.feedLiveDataSource.value?.retry()
+//    }
+//
+//    fun refresh() {
+//        sourceFactory.feedLiveDataSource.value!!.invalidate()
+//    }
+//
+//    fun listIsEmpty(): Boolean {
+//        return feedDataPagedList.value?.isEmpty() ?: true
+//    }
 
     override fun onCleared() {
         super.onCleared()

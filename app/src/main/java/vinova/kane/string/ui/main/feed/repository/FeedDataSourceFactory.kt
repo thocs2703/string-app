@@ -11,11 +11,11 @@ class FeedDataSourceFactory(
     private val service: ApiService,
     private val compositeDisposable: CompositeDisposable,
     private val authorization: String)
-    : DataSource.Factory<String, FeedData>() {
+    : DataSource.Factory<Int, FeedData>() {
 
     val feedLiveDataSource = MutableLiveData<FeedDataSource>()
 
-    override fun create(): DataSource<String, FeedData> {
+    override fun create(): DataSource<Int, FeedData> {
         val feedDataSource = FeedDataSource(service, compositeDisposable, authorization)
         Log.i("FeedDataSourceFactory", "Created Feed Data Source!")
         feedLiveDataSource.postValue(feedDataSource)

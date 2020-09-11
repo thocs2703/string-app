@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Feed(
     @SerializedName("code")
-    val code: Int,
+    val code: String,
     @SerializedName("data")
     val `data`: List<FeedData>,
     @SerializedName("message")

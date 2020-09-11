@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="@dimen/standard_margin"
-        android:src="@drawable/ic_back_button"
+        app:srcCompat="@drawable/ic_back_button"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:contentDescription="@string/cancle" />
@@ -49,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_1"
-        android:src="@drawable/ic_notification_empty"
+        app:srcCompat="@drawable/ic_notification_empty"
         android:contentDescription="@string/notification_empty" />
     
     <TextView

@@ -75,7 +75,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center"
             android:layout_marginEnd="@dimen/standard_margin"
-            android:src="@drawable/ic_avatar" />
+            app:srcCompat="@drawable/ic_avatar" />
 
         <TextView
             android:textColor="@android:color/black"
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:contentDescription="@string/recreate"
-            android:src="@drawable/ic_strung_from"
+            app:srcCompat="@drawable/ic_strung_from"
             android:focusable="true" />
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -119,7 +119,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/standard_margin"
             android:layout_marginEnd="@dimen/standard_margin"
-            android:src="@drawable/ic_avatar" />
+            app:srcCompat="@drawable/ic_avatar" />
 
         <TextView
             android:text="@string/username_poi"
@@ -172,7 +172,7 @@
         android:layout_marginTop="@dimen/standard_margin"
         android:layout_toEndOf="@id/btn_like_post"
         android:contentDescription="@string/comment_icon"
-        android:src="@drawable/ic_comment"
+        app:srcCompat="@drawable/ic_comment"
         android:focusable="true" />
 
     <TextView
@@ -194,7 +194,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/standard_margin"
         android:contentDescription="@string/show_more_feed"
-        android:src="@drawable/ic_more"
+        app:srcCompat="@drawable/ic_more"
         android:focusable="true" />
 
     <View

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 import vinova.kane.string.R
 import vinova.kane.string.model.feed.FeedData
@@ -25,9 +26,21 @@ class PostViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     fun bind(feed: FeedData?){
         if (feed != null) {
-            username.text = feed.user.username
-        }
+//            Glide.with(itemView)
+//                .load()
 
+            username.text = feed.user.username
+            saveCounter.text = feed.saveCounter.toString()
+            description.text = feed.description
+            location.text = feed.place.address
+            if (feed.videos == "null"){
+                playButton.visibility = View.GONE
+                timeDuration.visibility = View.GONE
+            }
+            timePost.text = feed.createdAt
+            likeCounter.text = feed.likeCounter.toString()
+            commentCounter.text = feed.likeCounter.toString()
+        }
     }
 
     companion object {

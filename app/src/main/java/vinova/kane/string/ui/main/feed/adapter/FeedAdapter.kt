@@ -1,5 +1,6 @@
 package vinova.kane.string.ui.main.feed.adapter
 
+import android.util.Log
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -22,6 +23,7 @@ class FeedAdapter: PagedListAdapter<FeedData, RecyclerView.ViewHolder>(DiffCallb
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val feed = getItem(position)
+        Log.d("FeedAdapter", "Feed data: $feed")
         when(holder){
             is PostViewHolder -> holder.bind(feed)
             is PoiViewHolder -> holder.bind(feed)
