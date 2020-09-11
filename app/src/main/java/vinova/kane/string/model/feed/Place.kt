@@ -9,13 +9,13 @@ data class Place(
     @SerializedName("id")
     val id: Int,
     @SerializedName("lat")
-    val lat: Int,
+    val lat: Float,
     @SerializedName("long")
-    val long: Int,
+    val long: Float,
     @SerializedName("photos")
     val photos: List<PhotoX>,
     @SerializedName("placeID")
-    val placeID: Int,
+    val placeID: String,
     @SerializedName("title")
     val title: String
 )

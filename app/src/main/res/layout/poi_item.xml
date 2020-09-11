@@ -6,31 +6,45 @@
     android:layout_height="wrap_content"
     android:background="@android:color/white">
 
-    <LinearLayout
-        android:id="@+id/ll_title_poi"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_poi_layout"
         android:layout_marginTop="@dimen/standard_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/location_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location"
+            tools:ignore="VectorDrawableCompat"
+            android:contentDescription="@string/location_image" />
+
         <TextView
+            android:layout_marginEnd="@dimen/small_margin"
+            app:layout_constraintEnd_toStartOf="@id/strung_counter_poi_button"
+            app:layout_constraintStart_toEndOf="@id/location_image"
+            app:layout_constraintTop_toTopOf="@id/location_image"
+            android:layout_marginStart="@dimen/small_margin"
             android:layout_weight="1"
-            android:textSize="@dimen/large_text_size"
+            android:textSize="@dimen/standard_text_size"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            app:drawableStartCompat="@drawable/ic_location"
             android:text="@string/address_poi_text"
-            android:id="@+id/address_text"
-            android:layout_width="wrap_content"
+            android:id="@+id/title_poi_text"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
         <Button
-            android:layout_marginEnd="@dimen/small_margin"
-            android:layout_gravity="end"
-            android:background="@drawable/button_shadow"
-            android:backgroundTint="@android:color/white"
-            android:id="@+id/btn_string_poi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/location_image"
+            android:id="@+id/strung_counter_poi_button"
             android:layout_width="@dimen/width_save_btn"
             android:layout_height="@dimen/height_save_btn"
+            android:layout_marginEnd="@dimen/small_margin"
+            android:background="@drawable/button_shadow"
             android:drawableStart="@drawable/ic_string"
             android:drawablePadding="@dimen/standard_margin"
             android:gravity="center"
@@ -39,34 +53,32 @@
             android:text="@string/saved_post_count"
             android:textColor="@android:color/holo_purple"
             android:textSize="15sp"
-            tools:ignore="RelativeOverlap"
-            tools:targetApi="lollipop" />
-    </LinearLayout>
+            tools:ignore="RelativeOverlap" />
 
-    <TextView
-        android:text="@string/location_text"
-        android:id="@+id/location_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_title_poi"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="@dimen/standard_margin"/>
+        <TextView
+            app:layout_constraintStart_toStartOf="@id/title_poi_text"
+            app:layout_constraintTop_toBottomOf="@id/title_poi_text"
+            android:text="@string/location_text"
+            android:id="@+id/address_poi_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/poi_frame"
-        android:layout_below="@id/location_text"
+        android:layout_below="@id/header_poi_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/standard_margin">
 
         <ImageView
-            android:id="@+id/img_poi"
+            android:id="@+id/poi_image"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/post_image"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/post_demo" />
+            android:scaleType="centerCrop"/>
 
         <LinearLayout
             android:background="@drawable/gradient_item_interest"
@@ -78,15 +90,16 @@
             android:padding="@dimen/small_padding">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_avatar_poi"
+                android:id="@+id/avt_poi_image"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/standard_margin"
                 android:padding="1dp"
-                app:srcCompat="@drawable/ic_avatar"
+                android:src="@drawable/ic_avatar"
                 app:civ_border_color="@android:color/white"
-                app:civ_border_width="1dp" />
+                app:civ_border_width="1dp"
+                tools:ignore="VectorDrawableCompat" />
 
             <TextView
                 android:textColor="@android:color/white"
@@ -114,6 +127,9 @@
         android:focusable="true" />
 
     <TextView
+        android:padding="3dp"
+        android:textSize="@dimen/standard_text_size"
+        android:text="@string/_0"
         android:id="@+id/like_counter_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -135,6 +151,9 @@
         android:focusable="true" />
 
     <TextView
+        android:padding="3dp"
+        android:textSize="@dimen/standard_text_size"
+        android:text="@string/_0"
         android:id="@+id/comment_counter_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

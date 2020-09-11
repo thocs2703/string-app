@@ -73,4 +73,6 @@
     <string name="string">String</string>
     <string name="recreate">Recreate</string>
     <string name="desc_itenerary_text">Sake is growing in popularity both nationally an internationally.</string>
+    <string name="_0">0</string>
+    <string name="location_image">Location Image</string>
 </resources>

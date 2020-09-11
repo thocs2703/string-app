@@ -1,46 +1,75 @@
 package vinova.kane.string.ui.main.feed.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.poi_item.view.*
+import kotlinx.android.synthetic.main.post_item.view.*
+import kotlinx.android.synthetic.main.post_item.view.comment_counter_text
+import kotlinx.android.synthetic.main.post_item.view.like_counter_text
 import vinova.kane.string.R
 import vinova.kane.string.model.feed.FeedData
 
-class PostViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    private val avatarImage = view.findViewById<CircleImageView>(R.id.avt_post_image)
-    private val username = view.findViewById<TextView>(R.id.username_post_text)
-    private val timePost = view.findViewById<TextView>(R.id.time_post_text)
-    private val saveCounter = view.findViewById<Button>(R.id.save_counter_button)
-    private val description = view.findViewById<TextView>(R.id.description_post_text)
-    private val location = view.findViewById<TextView>(R.id.location_post_text)
-    private val playButton = view.findViewById<Button>(R.id.play_video_button)
-    private val timeDuration = view.findViewById<TextView>(R.id.time_duration_text)
-    private val likeCounter = view.findViewById<TextView>(R.id.like_counter_text)
-    private val commentCounter = view.findViewById<TextView>(R.id.comment_counter_text)
-
-    fun bind(feed: FeedData?){
+    fun bind(feed: FeedData?) {
         if (feed != null) {
-//            Glide.with(itemView)
-//                .load()
+            with(itemView) {
+                if (feed.user?.profilePhoto != "null") {
+                    Glide.with(itemView)
+                        .load(feed.user?.profilePhoto)
+                        .error(R.drawable.ic_avatar)
+                        .into(avt_post_image)
+                }
 
-            username.text = feed.user.username
-            saveCounter.text = feed.saveCounter.toString()
-            description.text = feed.description
-            location.text = feed.place.address
-            if (feed.videos == "null"){
-                playButton.visibility = View.GONE
-                timeDuration.visibility = View.GONE
+                username_post_text.text = feed.user?.username
+                save_counter_post_button.text = feed.saveCounter.toString()
+                description_post_text.text = feed.description
+
+                Log.d("PostViewHolder", "Place title: ${feed.place}")
+                if (feed.place != null)
+                    location_post_text.text = feed.place.title
+
+                if (feed.videos == null) {
+
+                    play_video_image.visibility = View.GONE
+                    time_duration_text.visibility = View.GONE
+                } else {
+                    play_video_image.visibility = View.VISIBLE
+                    time_duration_text.visibility = View.VISIBLE
+                }
+
+                time_post_text.text = feed.updatedAt
+
+                if (feed.likeCounter == 0){
+                    like_counter_text.visibility = View.GONE
+                } else{
+                    like_counter_text.text = feed.likeCounter.toString()
+                    like_counter_text.visibility = View.VISIBLE
+                }
+
+                if(feed.commentCounter == 0){
+                    comment_counter_text.visibility = View.GONE
+                } else {
+                    comment_counter_text.text = feed.commentCounter.toString()
+                    comment_counter_text.visibility = View.VISIBLE
+                }
+
+                if(feed.photos != null){
+                    Glide.with(itemView)
+                        .load(feed.photos[0].url.original)
+                        .thumbnail(
+                            Glide.with(itemView).
+                            load(feed.photos[0].url.thumb))
+                        .into(post_image)
+                }
             }
-            timePost.text = feed.createdAt
-            likeCounter.text = feed.likeCounter.toString()
-            commentCounter.text = feed.likeCounter.toString()
         }
+
     }
 
     companion object {

@@ -21,7 +21,7 @@ data class User(
     @SerializedName("profilePhoto")
     val profilePhoto: String,
     @SerializedName("trash")
-    val trash: Int,
+    val trash: Boolean,
     @SerializedName("type")
     val type: String,
     @SerializedName("userID")

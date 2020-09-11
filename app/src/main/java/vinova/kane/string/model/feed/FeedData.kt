@@ -33,11 +33,11 @@ data class FeedData(
     @SerializedName("long")
     val long: Float,
     @SerializedName("photos")
-    val photos: List<Photo>,
+    val photos: List<Photo>?,
     @SerializedName("place")
-    val place: Place,
+    val place: Place?,
     @SerializedName("placeID")
-    val placeID: Int,
+    val placeID: String,
     @SerializedName("saveCounter")
     val saveCounter: Int,
     @SerializedName("strungCounter")
@@ -48,14 +48,14 @@ data class FeedData(
     val tags: List<Tag>,
     @SerializedName("title")
     val title: String,
-    @SerializedName("type ")
+    @SerializedName("type")
     val type: String,
     @SerializedName("updated_at")
     val updatedAt: String,
     @SerializedName("user")
-    val user: User,
+    val user: User?,
     @SerializedName("videos")
-    val videos: String,
+    val videos: Videos?,
     @SerializedName("websiteUrl")
     val websiteUrl: String
 //    @SerializedName("workingHours")
