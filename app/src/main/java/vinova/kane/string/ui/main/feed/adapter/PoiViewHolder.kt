@@ -5,6 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.poi_item.view.*
 import kotlinx.android.synthetic.main.poi_item.view.comment_counter_text
 import kotlinx.android.synthetic.main.poi_item.view.like_counter_text
@@ -38,6 +41,7 @@ class PoiViewHolder(view: View): RecyclerView.ViewHolder(view) {
                 if(feed.photos != null){
                     Glide.with(itemView)
                         .load(feed.photos[0].url.original)
+                        .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(20)))
                         .thumbnail(
                             Glide.with(itemView).
                             load(feed.photos[0].url.thumb))

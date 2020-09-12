@@ -6,8 +6,6 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import vinova.kane.string.model.feed.FeedData
-import vinova.kane.string.model.feed.Itinerary
-import vinova.kane.string.network.NetworkState
 import java.lang.IllegalArgumentException
 
 class FeedAdapter: PagedListAdapter<FeedData, RecyclerView.ViewHolder>(DiffCallback) {

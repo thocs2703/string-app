@@ -43,7 +43,7 @@ data class FeedData(
     @SerializedName("strungCounter")
     val strungCounter: Int,
     @SerializedName("strungFrom")
-    val strungFrom: StrungFrom,
+    val strungFrom: StrungFrom?,
     @SerializedName("tags")
     val tags: List<Tag>,
     @SerializedName("title")

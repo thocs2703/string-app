@@ -7,6 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.poi_item.view.*
 import kotlinx.android.synthetic.main.post_item.view.*
 import kotlinx.android.synthetic.main.post_item.view.comment_counter_text
@@ -59,13 +63,106 @@ class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                     comment_counter_text.visibility = View.VISIBLE
                 }
 
-                if(feed.photos != null){
-                    Glide.with(itemView)
-                        .load(feed.photos[0].url.original)
-                        .thumbnail(
-                            Glide.with(itemView).
-                            load(feed.photos[0].url.thumb))
-                        .into(post_image)
+                feed.photos?.let { photos ->
+                    time_duration_text.visibility = View.GONE
+                    play_video_image.visibility = View.GONE
+                    ll_image_feed.visibility = View.VISIBLE
+                    when (photos.size) {
+                        1 -> {
+                            sub_post_layout.visibility = View.GONE
+                            Glide.with(itemView)
+                                .load(photos[0].url.original)
+                                .thumbnail(Glide.with(itemView)
+                                        .load(photos[0].url.thumb))
+                                .apply(RequestOptions().transform(CenterCrop(), RoundedCorners(20)))
+                                .into(post_image)
+                        }
+                        2 -> {
+                            Glide.with(itemView)
+                                .load(photos[0].url.original)
+                                .thumbnail(Glide.with(itemView)
+                                    .load(photos[0].url.thumb))
+                                .apply(
+                                    RequestOptions().transform(
+                                        CenterCrop(),
+                                        RoundedCornersTransformation(
+                                            20,
+                                            0,
+                                            RoundedCornersTransformation.CornerType.TOP
+                                        )
+                                    )
+                                )
+                                .into(post_image)
+
+                            sub_post_layout.visibility = View.VISIBLE
+                            post_image_right.visibility = View.GONE
+                            Glide.with(itemView)
+                                .load(photos[1].url.original)
+                                .thumbnail(Glide.with(itemView)
+                                    .load(photos[1].url.thumb))
+                                .apply(
+                                    RequestOptions().transform(
+                                        CenterCrop(),
+                                        RoundedCornersTransformation(
+                                            20,
+                                            0,
+                                            RoundedCornersTransformation.CornerType.BOTTOM
+                                        )
+                                    )
+                                )
+                                .into(post_image_left)
+                        }
+                        else -> {
+                            sub_post_layout.visibility = View.VISIBLE
+                            Glide.with(itemView)
+                                .load(photos[0].url.original)
+                                .thumbnail(Glide.with(itemView)
+                                    .load(photos[0].url.thumb))
+                                .apply(
+                                    RequestOptions().transform(
+                                        CenterCrop(),
+                                        RoundedCornersTransformation(
+                                            20,
+                                            0,
+                                            RoundedCornersTransformation.CornerType.TOP
+                                        )
+                                    )
+                                )
+                                .into(post_image)
+                            post_image_left.visibility = View.VISIBLE
+                            post_image_right.visibility = View.VISIBLE
+                            Glide.with(itemView)
+                                .load(photos[1].url.original)
+                                .thumbnail(Glide.with(itemView)
+                                    .load(photos[1].url.thumb))
+                                .apply(
+                                    RequestOptions().transform(
+                                        CenterCrop(),
+                                        RoundedCornersTransformation(
+                                            20,
+                                            0,
+                                            RoundedCornersTransformation.CornerType.BOTTOM_LEFT
+                                        )
+                                    )
+                                )
+                                .into(post_image_left)
+                            Glide.with(itemView)
+                                .load(photos[2].url.original)
+                                .thumbnail(Glide.with(itemView)
+                                    .load(photos[2].url.thumb))
+                                .apply(
+                                    RequestOptions().transform(
+                                        CenterCrop(),
+                                        RoundedCornersTransformation(
+                                            20,
+                                            0,
+                                            RoundedCornersTransformation.CornerType.BOTTOM_RIGHT
+                                        )
+                                    )
+                                )
+                                .into(post_image_right)
+                        }
+                    }
                 }
             }
         }

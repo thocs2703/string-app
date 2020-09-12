@@ -1,25 +1,27 @@
 package vinova.kane.string.ui.auth
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.animation.AlphaAnimation
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import vinova.kane.string.R
 import vinova.kane.string.databinding.FragmentLoginBinding
 import vinova.kane.string.ui.main.MainActivity
-import vinova.kane.string.util.ACCESS_TOKEN
 import vinova.kane.string.util.EMAIL_ARGS_FROM_LOGIN
 import vinova.kane.string.util.LOGIN_SUCCESSFUL_MSG
+import vinova.kane.string.util.SaveSharedPreference
 import vinova.kane.string.util.VERIFY_EMAIL_MSG
 import vinova.kane.string.viewmodel.AuthViewModel
+
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -49,7 +51,6 @@ class LoginFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-
         binding.forgotPwTextClick.setOnClickListener {
             it.startAnimation(buttonClick)
             findNavController().navigate(R.id.forgot_password_action)
@@ -71,8 +72,10 @@ class LoginFragment : Fragment() {
         viewModel.dataLoginResponse.observe(viewLifecycleOwner, Observer {
             when (it.message) {
                 LOGIN_SUCCESSFUL_MSG -> {
+                    SaveSharedPreference().setLoggedIn(activity?.applicationContext!!, true)
+                    SaveSharedPreference().setAccessToken(activity?.applicationContext!!, it.data.accessToken)
                     val intent = Intent(activity, MainActivity::class.java)
-                    intent.putExtra(ACCESS_TOKEN, it.data.accessToken)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(intent)
                 }
                 VERIFY_EMAIL_MSG -> {

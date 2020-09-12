@@ -2,15 +2,12 @@ package vinova.kane.string.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import io.reactivex.disposables.CompositeDisposable
 import vinova.kane.string.model.feed.FeedData
 import vinova.kane.string.network.Client
-import vinova.kane.string.network.NetworkState
-import vinova.kane.string.ui.main.feed.repository.FeedDataSource
 import vinova.kane.string.ui.main.feed.repository.FeedDataSourceFactory
 import vinova.kane.string.util.DATA_PER_PAGE
 

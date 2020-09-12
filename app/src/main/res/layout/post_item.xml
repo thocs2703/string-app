@@ -87,12 +87,14 @@
             android:orientation="vertical">
 
             <FrameLayout
+                android:id="@+id/top_post_layout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 tools:ignore="UselessParent">
 
                 <ImageView
+                    android:src="@drawable/post_demo"
                     android:id="@+id/post_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -128,6 +130,7 @@
                     tools:visibility="visible" />
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/time_duration_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -135,12 +138,42 @@
                     android:background="@android:color/black"
                     android:contentDescription="@string/time_duration"
                     android:padding="@dimen/small_padding"
-                    android:text="@string/time_duration"
                     android:textColor="@android:color/white"
                     tools:targetApi="lollipop" />
             </FrameLayout>
-        </LinearLayout>
 
+            <LinearLayout
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:id="@+id/sub_post_layout"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:src="@drawable/post_demo"
+                    android:id="@+id/post_image_left"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/post_image"
+                    android:scaleType="centerCrop"
+                    tools:ignore="NestedWeights" />
+
+                <ImageView
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/post_demo"
+                    android:layout_weight="1"
+                    android:id="@+id/post_image_right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/post_image"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/btn_like_post"

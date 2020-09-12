@@ -57,7 +57,7 @@
 
         <TextView
             app:layout_constraintStart_toStartOf="@id/title_poi_text"
-            app:layout_constraintTop_toBottomOf="@id/title_poi_text"
+            app:layout_constraintTop_toBottomOf="@id/strung_counter_poi_button"
             android:text="@string/location_text"
             android:id="@+id/address_poi_text"
             android:layout_width="wrap_content"
