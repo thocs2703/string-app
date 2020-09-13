@@ -51,4 +51,5 @@ interface ApiService {
         @Header("Authorization") authorization: String,
         @Query("lists_interest[]") listsInterest: ArrayList<Int>
     ): Single<UserResponse>
+
 }

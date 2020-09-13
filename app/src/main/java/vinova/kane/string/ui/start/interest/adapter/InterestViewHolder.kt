@@ -1,6 +1,5 @@
 package vinova.kane.string.ui.start.interest.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,6 @@ import vinova.kane.string.model.interest.InterestData
 
 class InterestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private var listItem: ArrayList<InterestData> = arrayListOf()
-    private var checkCounter = 0
 
     init {
         view.setOnClickListener {
@@ -25,12 +23,12 @@ class InterestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 
-    fun bind(item: InterestData?) {
+    fun bind(item: InterestData?, position: Int) {
         if(item != null){
-            listItem.add(item)
             with(itemView) {
-                Log.d("InterestAdapter", item.title)
                 interest_title_text.text = item.title
+
+                interest_checkbox.isChecked = item.checkUserSellect != 0
 
                 Glide.with(itemView)
                     .load(item.photo.url.original)
@@ -41,16 +39,10 @@ class InterestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                     )
                     .error(R.drawable.interest_demo)
                     .into(interest_image)
-
             }
+            listItem[position] = item
         }
-
     }
-
-    fun getCheckCounter(){
-
-    }
-
 
     companion object {
         fun create(parent: ViewGroup): InterestViewHolder {

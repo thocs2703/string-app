@@ -70,33 +70,35 @@ class LoginFragment : Fragment() {
         )
 
         viewModel.dataLoginResponse.observe(viewLifecycleOwner, Observer {
-            if (findNavController().currentDestination?.id == R.id.loginFragment) {
-                val bundle =
-                    bundleOf("SELECT_INTEREST" to it.data.accessToken)
-                findNavController().navigate(R.id.login_to_select_interest_action, bundle)
+
+            when (it.message) {
+                LOGIN_SUCCESSFUL_MSG -> {
+                    if (it.data.isFirstTime){
+                        if (findNavController().currentDestination?.id == R.id.loginFragment) {
+                            val bundle =
+                                bundleOf("SELECT_INTEREST" to it.data.accessToken)
+                            findNavController().navigate(R.id.login_to_select_interest_action, bundle)
+                        }
+                    } else{
+                        SaveSharedPreference().setLoggedIn(activity?.applicationContext!!, true)
+                        SaveSharedPreference().setAccessToken(activity?.applicationContext!!, it.data.accessToken)
+                        val intent = Intent(activity, MainActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
+                        startActivity(intent)
+                    }
+                }
+                VERIFY_EMAIL_MSG -> {
+                    if (findNavController().currentDestination?.id == R.id.loginFragment) {
+                        val bundle =
+                            bundleOf(EMAIL_ARGS_FROM_LOGIN to binding.emailEditText.text.toString())
+                        findNavController().navigate(R.id.login_to_verify_email_action, bundle)
+                    }
+                }
+                else -> {
+                    binding.errorText.text = it.message
+                    binding.errorText.visibility = View.VISIBLE
+                }
             }
-
-
-//            when (it.message) {
-//                LOGIN_SUCCESSFUL_MSG -> {
-//                    SaveSharedPreference().setLoggedIn(activity?.applicationContext!!, true)
-//                    SaveSharedPreference().setAccessToken(activity?.applicationContext!!, it.data.accessToken)
-//                    val intent = Intent(activity, MainActivity::class.java)
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
-//                    startActivity(intent)
-//                }
-//                VERIFY_EMAIL_MSG -> {
-//                    if (findNavController().currentDestination?.id == R.id.loginFragment) {
-//                        val bundle =
-//                            bundleOf(EMAIL_ARGS_FROM_LOGIN to binding.emailEditText.text.toString())
-//                        findNavController().navigate(R.id.login_to_verify_email_action, bundle)
-//                    }
-//                }
-//                else -> {
-//                    binding.errorText.text = it.message
-//                    binding.errorText.visibility = View.VISIBLE
-//                }
-//            }
         })
     }
 }

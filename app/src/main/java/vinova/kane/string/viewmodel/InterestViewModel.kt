@@ -1,30 +1,47 @@
 package vinova.kane.string.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.paging.LivePagedListBuilder
-import androidx.paging.PagedList
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import vinova.kane.string.model.interest.InterestData
+import io.reactivex.schedulers.Schedulers
+import vinova.kane.string.model.interest.Interest
+import vinova.kane.string.model.user.UserResponse
 import vinova.kane.string.network.Client
-import vinova.kane.string.ui.start.interest.repository.InterestDataSourceFactory
 
 class InterestViewModel: ViewModel() {
-    private lateinit var sourceFactory: InterestDataSourceFactory
     private val compositeDisposable = CompositeDisposable()
     private val apiService = Client.getClient()
-    lateinit var interestDataPagedList: LiveData<PagedList<InterestData>>
 
-    private var config: PagedList.Config = PagedList.Config.Builder()
-        .setPageSize(25)
-        .setEnablePlaceholders(false)
-        .build()
+    val interest = MutableLiveData<Interest>()
+    val putInterest = MutableLiveData<UserResponse>()
 
-    fun getListInterests(authorization: String){
-        sourceFactory = InterestDataSourceFactory(apiService, compositeDisposable, authorization)
-        interestDataPagedList = LivePagedListBuilder<Int, InterestData>(sourceFactory, config).build()
-        Log.i("FeedViewModel", "Get Feed")
+    fun getListInterest(authorization: String) {
+        compositeDisposable.add(
+            apiService.getListInterest(authorization)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    interest.value = it
+                    Log.d("InterestViewModel", "Success, data: ${it.data}")
+                }, {
+                    Log.d("InterestViewModel", "Message: ${it.message}")
+                })
+        )
+    }
+
+    fun putListInterest(accessToken: String, listsInterest: ArrayList<Int>) {
+        compositeDisposable.add(
+            apiService.putInterest(accessToken, listsInterest)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    putInterest.value = it
+                }, {
+                    Log.d("InterestViewModel", "Message: ${it.message}")
+                })
+        )
     }
 
     override fun onCleared() {

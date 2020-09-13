@@ -7,7 +7,7 @@ data class Interest(
     @SerializedName("code")
     val code: Int,
     @SerializedName("data")
-    val `data`: List<InterestData>,
+    val `data`: ArrayList<InterestData>,
     @SerializedName("message")
     val message: String,
     @SerializedName("metadata")

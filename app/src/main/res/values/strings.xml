@@ -6,7 +6,6 @@
     <string name="sign_up_with_facebook">SIGN UP WITH FACEBOOK</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="log_in">LOG IN</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="create_account">Create Account</string>
     <string name="email">Email</string>
@@ -78,6 +77,7 @@
     <string name="interest_image">Interest Image</string>
     <string name="adventure">Adventure</string>
     <string name="select_interests">Select Interests</string>
-    <string name="_3_more">3 More</string>
+    <string name="_3_more">%1$d more</string>
     <string name="select_at_least_3_tags_that_represents_your_interests">Select at least 3 tags that represents your interests</string>
+    <string name="next">Next</string>
 </resources>

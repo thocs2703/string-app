@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class InterestData(
     @SerializedName("check_user_sellect")
-    val checkUserSellect: Int,
+    var checkUserSellect: Int,
     @SerializedName("created_at")
     val createdAt: String,
     @SerializedName("id")

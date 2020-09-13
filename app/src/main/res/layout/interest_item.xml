@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <FrameLayout
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/border_image_drawable"
         android:padding="@dimen/small_padding"
         android:layout_weight="0.5"
         android:layout_width="0dp"
