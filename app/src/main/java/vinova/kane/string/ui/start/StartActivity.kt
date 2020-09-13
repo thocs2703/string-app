@@ -1,4 +1,4 @@
-package vinova.kane.string.ui.auth
+package vinova.kane.string.ui.start
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import vinova.kane.string.R
 import vinova.kane.string.ui.main.MainActivity
 import vinova.kane.string.util.SaveSharedPreference
 
-class AuthActivity : AppCompatActivity() {
+class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)

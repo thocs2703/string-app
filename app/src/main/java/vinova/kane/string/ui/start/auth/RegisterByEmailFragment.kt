@@ -1,4 +1,4 @@
-package vinova.kane.string.ui.auth
+package vinova.kane.string.ui.start.auth
 
 import android.app.DatePickerDialog
 import android.os.Bundle

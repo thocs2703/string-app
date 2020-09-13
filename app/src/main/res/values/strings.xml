@@ -75,4 +75,9 @@
     <string name="desc_itenerary_text">Sake is growing in popularity both nationally an internationally.</string>
     <string name="_0">0</string>
     <string name="location_image">Location Image</string>
+    <string name="interest_image">Interest Image</string>
+    <string name="adventure">Adventure</string>
+    <string name="select_interests">Select Interests</string>
+    <string name="_3_more">3 More</string>
+    <string name="select_at_least_3_tags_that_represents_your_interests">Select at least 3 tags that represents your interests</string>
 </resources>

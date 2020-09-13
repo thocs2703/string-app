@@ -1,8 +1,11 @@
 package vinova.kane.string.network
 
 import io.reactivex.Single
+import retrofit2.Call
 import retrofit2.http.*
 import vinova.kane.string.model.feed.Feed
+import vinova.kane.string.model.interest.Interest
+import vinova.kane.string.model.user.UserData
 import vinova.kane.string.model.user.UserResponse
 
 interface ApiService {
@@ -37,4 +40,15 @@ interface ApiService {
         @Query("current_per_page") currentPerPage: Int,
         @Header("Authorization") authorization: String
     ): Single<Feed>
+
+    @GET("interest-categories-list")
+    fun getListInterest(
+        @Header("Authorization") authorization: String
+    ): Single<Interest>
+
+    @PUT("users-interest-categories-select")
+    fun putInterest(
+        @Header("Authorization") authorization: String,
+        @Query("lists_interest[]") listsInterest: ArrayList<Int>
+    ): Single<UserResponse>
 }

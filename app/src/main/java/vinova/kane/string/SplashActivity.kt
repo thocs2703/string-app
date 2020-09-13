@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
-import vinova.kane.string.ui.auth.AuthActivity
+import vinova.kane.string.ui.start.StartActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
-            startActivity(Intent(this, AuthActivity::class.java))
+            startActivity(Intent(this, StartActivity::class.java))
         }, 3000)
     }
 }

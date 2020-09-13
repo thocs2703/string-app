@@ -12,22 +12,22 @@
         tools:layout="@layout/fragment_feed" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="vinova.kane.string.ui.main.SearchFragment"
+        android:name="vinova.kane.string.ui.main.another.SearchFragment"
         android:label="@string/search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/postFragment"
-        android:name="vinova.kane.string.ui.main.PostFragment"
+        android:name="vinova.kane.string.ui.main.another.PostFragment"
         android:label="@string/post"
         tools:layout="@layout/fragment_post" />
     <fragment
         android:id="@+id/notificationFragment"
-        android:name="vinova.kane.string.ui.main.NotificationFragment"
+        android:name="vinova.kane.string.ui.main.another.NotificationFragment"
         android:label="@string/notification"
         tools:layout="@layout/fragment_notification" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="vinova.kane.string.ui.main.ProfileFragment"
+        android:name="vinova.kane.string.ui.main.another.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -6,27 +6,25 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import io.reactivex.disposables.CompositeDisposable
-import vinova.kane.string.model.feed.FeedData
+import vinova.kane.string.model.interest.InterestData
 import vinova.kane.string.network.Client
-import vinova.kane.string.ui.main.feed.repository.FeedDataSourceFactory
-import vinova.kane.string.util.DATA_PER_PAGE
+import vinova.kane.string.ui.start.interest.repository.InterestDataSourceFactory
 
-class FeedViewModel: ViewModel() {
-    private lateinit var sourceFactory: FeedDataSourceFactory
+class InterestViewModel: ViewModel() {
+    private lateinit var sourceFactory: InterestDataSourceFactory
     private val compositeDisposable = CompositeDisposable()
     private val apiService = Client.getClient()
-    lateinit var feedDataPagedList: LiveData<PagedList<FeedData>>
+    lateinit var interestDataPagedList: LiveData<PagedList<InterestData>>
 
     private var config: PagedList.Config = PagedList.Config.Builder()
-        .setPageSize(DATA_PER_PAGE)
+        .setPageSize(25)
         .setEnablePlaceholders(false)
         .build()
 
-    fun getFeed(authorization: String){
-        sourceFactory = FeedDataSourceFactory(apiService, compositeDisposable, authorization)
-        feedDataPagedList = LivePagedListBuilder<Int, FeedData>(sourceFactory, config).build()
+    fun getListInterests(authorization: String){
+        sourceFactory = InterestDataSourceFactory(apiService, compositeDisposable, authorization)
+        interestDataPagedList = LivePagedListBuilder<Int, InterestData>(sourceFactory, config).build()
         Log.i("FeedViewModel", "Get Feed")
-        Log.d("FeedViewModel", "Authorization: $authorization")
     }
 
     override fun onCleared() {

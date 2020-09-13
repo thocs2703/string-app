@@ -1,4 +1,4 @@
-package vinova.kane.string.ui.main
+package vinova.kane.string.ui.main.another
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

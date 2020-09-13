@@ -1,4 +1,4 @@
-package vinova.kane.string.ui.auth
+package vinova.kane.string.ui.start.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

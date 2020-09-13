@@ -11,10 +11,8 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import vinova.kane.string.databinding.FragmentFeedBinding
-import vinova.kane.string.ui.auth.AuthActivity
-import vinova.kane.string.ui.main.MainActivity
+import vinova.kane.string.ui.start.StartActivity
 import vinova.kane.string.ui.main.feed.adapter.FeedAdapter
-import vinova.kane.string.util.ACCESS_TOKEN
 import vinova.kane.string.util.SaveSharedPreference
 import vinova.kane.string.viewmodel.FeedViewModel
 
@@ -41,7 +39,7 @@ class FeedFragment : Fragment() {
             Log.i("FeedFragment", "Access token have died!")
             Toast.makeText(activity, "Access token have died!", Toast.LENGTH_SHORT).show()
             SaveSharedPreference().setLoggedIn(activity?.applicationContext!!, false)
-            val intent = Intent(activity, AuthActivity::class.java)
+            val intent = Intent(activity, StartActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
         }

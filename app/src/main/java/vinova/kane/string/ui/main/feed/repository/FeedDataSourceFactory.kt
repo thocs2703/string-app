@@ -13,7 +13,7 @@ class FeedDataSourceFactory(
     private val authorization: String)
     : DataSource.Factory<Int, FeedData>() {
 
-    val feedLiveDataSource = MutableLiveData<FeedDataSource>()
+    private val feedLiveDataSource = MutableLiveData<FeedDataSource>()
 
     override fun create(): DataSource<Int, FeedData> {
         val feedDataSource = FeedDataSource(service, compositeDisposable, authorization)

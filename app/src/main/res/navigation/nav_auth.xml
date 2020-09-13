@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="vinova.kane.string.ui.auth.StartFragment"
+        android:name="vinova.kane.string.ui.start.auth.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/registerByEmailFragment"
-        android:name="vinova.kane.string.ui.auth.RegisterByEmailFragment"
+        android:name="vinova.kane.string.ui.start.auth.RegisterByEmailFragment"
         android:label="fragment_register_by_email"
         tools:layout="@layout/fragment_register_by_email" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerByFbFragment"
-        android:name="vinova.kane.string.ui.auth.RegisterByFbFragment"
+        android:name="vinova.kane.string.ui.start.auth.RegisterByFbFragment"
         android:label="fragment_register_by_fb"
         tools:layout="@layout/fragment_register_by_fb" >
         <action
@@ -44,12 +44,12 @@
     </fragment>
     <fragment
         android:id="@+id/termsFragment"
-        android:name="vinova.kane.string.ui.auth.TermsFragment"
+        android:name="vinova.kane.string.ui.start.auth.TermsFragment"
         android:label="fragment_terms"
         tools:layout="@layout/fragment_terms" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="vinova.kane.string.ui.auth.LoginFragment"
+        android:name="vinova.kane.string.ui.start.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -58,11 +58,14 @@
         <action
             android:id="@+id/login_to_verify_email_action"
             app:destination="@id/verifyEmailFragment" />
+        <action
+            android:id="@+id/login_to_select_interest_action"
+            app:destination="@id/interestFragment" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_forgot_password"
         android:id="@+id/forgotPasswordFragment"
-        android:name="vinova.kane.string.ui.auth.ForgotPasswordFragment"
+        android:name="vinova.kane.string.ui.start.auth.ForgotPasswordFragment"
         android:label="ForgotPasswordFragment" >
         <action
             android:id="@+id/verify_email_action"
@@ -70,7 +73,12 @@
     </fragment>
     <fragment
         android:id="@+id/verifyEmailFragment"
-        android:name="vinova.kane.string.ui.auth.VerifyEmailFragment"
+        android:name="vinova.kane.string.ui.start.auth.VerifyEmailFragment"
         android:label="fragment_verify_email"
         tools:layout="@layout/fragment_verify_email" />
+    <fragment
+        android:id="@+id/interestFragment"
+        android:name="vinova.kane.string.ui.start.interest.InterestFragment"
+        android:label="fragment_interest"
+        tools:layout="@layout/fragment_interest" />
 </navigation>

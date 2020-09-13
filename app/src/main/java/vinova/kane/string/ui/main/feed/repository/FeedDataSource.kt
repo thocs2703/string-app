@@ -1,6 +1,5 @@
 package vinova.kane.string.ui.main.feed.repository
 
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -10,7 +9,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import vinova.kane.string.model.feed.FeedData
 import vinova.kane.string.network.ApiService
-import vinova.kane.string.ui.auth.AuthActivity
+import vinova.kane.string.ui.start.StartActivity
 import vinova.kane.string.util.SaveSharedPreference
 import vinova.kane.string.util.StringApplication
 
@@ -36,7 +35,7 @@ class FeedDataSource(
                     Log.d("FeedDataSource", "Message: ${it.message}")
                     val context: Context = StringApplication.applicationContext()
                     SaveSharedPreference().setLoggedIn(context, false)
-                    val intent = Intent(context, AuthActivity::class.java)
+                    val intent = Intent(context, StartActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(context, intent, null)
                 })
